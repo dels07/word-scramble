@@ -33,4 +33,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\History', 'user_id', 'id');
     }
+
+    public function getWordsCountAttribute()
+    {
+        $array = explode(',', $this->words);
+
+        return count($array) - 1;
+    }
 }
