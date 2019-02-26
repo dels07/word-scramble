@@ -19,7 +19,7 @@
     </div>
     <div class="box-form">
         @if (! empty(session('message')))
-            <span class="notification wrong" style="width: 240px; top: -48px;">{{ session('message') }}</span>
+            <span class="notification {{ session('type') }}" style="width: 240px; top: -48px;">{{ session('message') }}</span>
         @endif
         <form action="{{ route('auth.postLogin') }}" method="POST">
             @csrf

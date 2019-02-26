@@ -33,13 +33,20 @@ class AuthController extends Controller
             return redirect(route('game.index'));
         }
 
-        $request->session()->flash('message', 'Invalid email or password!');
-
-        return back()->withInput();
+        return back()->withInput()->with([
+            'type'    => 'wrong',
+            'message' => 'Invalid email or password!'
+        ]);
     }
 
     public function postRegister(Request $request)
     {
+        $request->validate([
+            'name'     => 'required',
+            'email'    => 'required|email|unique:users',
+            'password' => 'required|min:6'
+        ]);
+
         $user = User::create([
             'name'     => $request->name,
             'email'    => $request->email,
@@ -47,15 +54,15 @@ class AuthController extends Controller
         ]);
 
         if (! $user) {
-            return response()->json([
-                'status'  => 'failed',
-                'message' => 'user registration failed!'
-            ], 400);
+            return back()->with([
+                'type'    => 'wrong',
+                'message' => 'Registration error, try again!'
+            ]);
         }
 
-        return response()->json([
-            'status'  => 'success',
-            'message' => 'user registration success!'
+        return redirect(route('auth.login'))->with([
+            'type'    => 'correct',
+            'message' => 'Registration completed!'
         ]);
     }
 

@@ -19,13 +19,16 @@
     </div>
     <div class="box-form">
         @if (! empty(session('message')))
-            <span class="notification wrong" style="width: 240px; top: -48px;">{{ session('message') }}</span>
+            <span class="notification {{ session('type') }}" style="width: 240px; top: -48px;">{{ session('message') }}</span>
         @endif
-        <form action="{{ route('auth.postLogin') }}" method="POST">
+        @if (! empty($errors))
+            <span class="notification wrong" style="width: 240px; top: -48px;">{{ $errors->first() }}</span>
+        @endif
+        <form action="{{ route('auth.postRegister') }}" method="POST">
             @csrf
-            <input type="text" name="email" placeholder="email" value="{{ old('email') }}"><br>
-            <input type="password" name="password" placeholder="password"><br>
-            <input type="password" name="password_confirmation" placeholder="re-type password"><br>
+            <input type="text" name="name" placeholder="your name" value="{{ old('name') }}"><br>
+            <input type="text" name="email" placeholder="valid email address" value="{{ old('email') }}"><br>
+            <input type="password" name="password" placeholder="password, min 6 chars"><br>
             <button type="submit" class="btn-auth"><span>Register</span></button>
         </form>
         <a href="{{ route('auth.login') }}">Already have account</a>
