@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="{{ asset('css/game.css') }}">
-    <title>Word Scramble</title>
-</head>
-<body>
+@extends('master')
+
+@section('body')
     <div class="box-logo">
         <button><span>w</span></button>
         <button><span>o</span></button>
@@ -33,5 +25,4 @@
         </form>
         <a href="{{ route('auth.login') }}">Already have account</a>
     </div>
-</body>
-</html>
+@endsection
