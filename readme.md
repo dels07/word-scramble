@@ -18,4 +18,4 @@ A simple game of word guessing game with topic as a hint.
 ```touch database/database.sqlite``` and adjust ```.env``` file.
 
 ## Screenshot
-![Screenshot 1](/public/screenshot/01.png) ![Screenshot 2](/public/screenshot/02.png)
+![Screenshot 1](/public/screenshot/01.PNG) ![Screenshot 2](/public/screenshot/02.PNG)
