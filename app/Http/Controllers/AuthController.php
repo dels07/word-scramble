@@ -22,13 +22,13 @@ class AuthController extends Controller
 
         if (auth()->attempt($credential)) {
             if (auth()->user()->isAdmin) {
-                return redirect('admin.index');
+                return redirect(route('admin.index'));
             }
 
-            return redirect('game.index');
+            return redirect(route('game.index'));
         }
 
-        $request->session->put('message', 'Invalid email or password!');
+        $request->session()->flash('message', 'Invalid email or password!');
 
         return back()->withInput();
     }
@@ -58,6 +58,6 @@ class AuthController extends Controller
     {
         auth()->logout();
 
-        return redirect('auth.login');
+        return redirect(route('auth.login'));
     }
 }
