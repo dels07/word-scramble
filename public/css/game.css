@@ -191,6 +191,13 @@ a {
     display: none;
 }
 
+.header .title {
+    float: left;
+    font-size: 24px;
+    color: #ffffff;
+    padding: 16px 4px;
+}
+
 /* Layout */
 .header {
     height: 85px;
@@ -241,3 +248,29 @@ a {
     margin: 10px;
 }
 
+/* table */
+.box-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+}
+
+.box-table th {
+    color: #D5DDE5;
+    background:#1b1e24;
+    font-size: 18px;
+    padding: 18px;
+    vertical-align:middle;
+}
+
+.box-table td {
+    padding: 8px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}

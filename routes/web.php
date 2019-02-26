@@ -22,3 +22,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('get-word', 'GameController@getWord')->name('game.word');
     Route::post('check-answer', 'GameController@checkAnswer')->name('game.answer');
 });
+
+Route::get('admin', 'AdminController@index')->name('admin.index');
