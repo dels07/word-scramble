@@ -13,8 +13,8 @@ class Word extends Model
         return $this->belongsTo('App\Category', 'category_id');
     }
 
-    public function getWordAttribute($value)
+    public function getWordShuffledAttribute()
     {
-        return str_shuffle($value);
+        return str_shuffle($this->word);
     }
 }
