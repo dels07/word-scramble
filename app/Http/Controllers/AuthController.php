@@ -10,13 +10,18 @@ class AuthController extends Controller
 {
     public function login()
     {
-        return view('auth');
+        return view('login');
+    }
+
+    public function register()
+    {
+        return view('register');
     }
 
     public function postLogin(Request $request)
     {
         $credential = [
-            'email' => $request->email,
+            'email'    => $request->email,
             'password' => $request->password
         ];
 

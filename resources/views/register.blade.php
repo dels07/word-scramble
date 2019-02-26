@@ -25,9 +25,10 @@
             @csrf
             <input type="text" name="email" placeholder="email" value="{{ old('email') }}"><br>
             <input type="password" name="password" placeholder="password"><br>
-            <button type="submit" class="btn-auth"><span>Lets Play</span></button>
+            <input type="password" name="password_confirmation" placeholder="re-type password"><br>
+            <button type="submit" class="btn-auth"><span>Register</span></button>
         </form>
-        {{-- <a href="#register">Register</a> --}}
+        <a href="{{ route('auth.login') }}">Already have account</a>
     </div>
 </body>
 </html>
