@@ -14,7 +14,10 @@
 Route::get('login', 'AuthController@login')->name('auth.login');
 Route::post('login', 'AuthController@postLogin')->name('auth.postLogin');
 Route::post('register', 'AuthController@postRegister')->name('auth.postRegister');
+Route::get('logout', 'AuthController@logout')->name('logout');
 
-Route::get('/', 'GameController@index')->name('game.index');
-Route::get('get-words', 'GameController@getWords')->name('game.word');
-Route::post('check-answer', 'GameController@checkAnswer')->name('game.answer');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', 'GameController@index')->name('game.index');
+    Route::get('get-word', 'GameController@getWord')->name('game.word');
+    Route::post('check-answer', 'GameController@checkAnswer')->name('game.answer');
+});
